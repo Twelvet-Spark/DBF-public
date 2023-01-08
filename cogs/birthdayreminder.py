@@ -70,7 +70,7 @@ class BirthdayReminder(commands.Cog):
     @commands.slash_command(name="show_all_birthdays", description="Show all bitrhdays", guild_ids=conf.GUILD_ID)
     @commands.cooldown(conf.COM_COOLDOWN["rate"], conf.COM_COOLDOWN["per"], commands.BucketType.user)
     async def showAllBirthdays(self, ctx: discord.ApplicationContext):
-        await ctx.respond(f"{db.readRecords()}")
+        await ctx.respond(f"{db.readRecords()}", ephemeral=True)
 
     @commands.slash_command(name="set_birthday", description="Write down your birthday", guild_ids=conf.GUILD_ID)
     @commands.cooldown(conf.COM_COOLDOWN["rate"], conf.COM_COOLDOWN["per"], commands.BucketType.user)
