@@ -23,7 +23,7 @@ class Interactions(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.hugList = ["{0} hugs {1}"]
-        self.randomFact = ["random fact about {0}"]
+        self.randomFact = ["random fact about user"]
         self.time = datetime
         self.updateTimeSeed.start()
 
