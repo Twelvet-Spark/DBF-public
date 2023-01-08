@@ -11,6 +11,8 @@ import discord
 from discord.ext import commands
 from discord.commands import option
 
+# Make use of the admin roles and thier permissions
+
 class AdminCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -92,7 +94,7 @@ class AdminCommands(commands.Cog):
     @commands.slash_command(name="extcomm", description="Show commands and extensions loaded", guild_ids=conf.GUILD_ID)
     @commands.cooldown(conf.COM_COOLDOWN["rate"], conf.COM_COOLDOWN["per"], commands.BucketType.user)
     async def extcomm(self, ctx: discord.ApplicationContext):
-        if self.checkRoles(ctx.author.roles):
+        if ctx.author.id in conf.CREATORS_IDS or ctx.author.id == ctx.guild.owner_id:
             extList = ""
             cogList = ""
             commList = ""
