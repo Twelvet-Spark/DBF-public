@@ -1,22 +1,24 @@
 """ COG admincommand.py
 This cog contains admin commands.
 """
-
+# dasdasd
 import os
 import sys
-import configs.config as conf
-import modules.extensions as extControl
-import modules.db as db
+
 import discord
-from discord.ext import commands
 from discord.commands import option
+from discord.ext import commands
+
+import configs.config as conf
+import modules.db as db
+import modules.extensions as extControl
 
 # Make use of the admin roles and thier permissions
 
 class AdminCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        
+
     async def cog_command_error(self, ctx: discord.ApplicationContext, error: commands.CommandError):
         if isinstance(error, commands.CommandOnCooldown):
             await ctx.respond(f"Please don't spam commands, wait {error.cooldown.get_retry_after():.2f} seconds", ephemeral=True, delete_after=5)
